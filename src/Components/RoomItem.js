@@ -1,10 +1,10 @@
 const RoomItem = ({ data }) => {
     return (
-        <div className="grid grid-cols-3 gap-12">
-            {data.map(item => (
-                <div>
-                    <img src={item.photo} alt={item.title} className="rounded-xl h-64 w-full object-cover mb-3" />
-                    <div class="flex items-center justify-between">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3">
+            {data.slice(0, 6).map((item, index) => (
+                <div key={index}>
+                    <img src={item.photo} alt={item.title} className="rounded-xl h-80 sm:h-64 w-full object-cover mb-3" />
+                    <div className="flex items-center justify-between">
                         {item.superHost && <span className="border-2 p-1 rounded-xl border-gray-400 font-semibold text-sm tracking-wide">Super Host</span>}
                         <p className="text-gray-600">{item.type}</p>
                         <p className="flex items-center">
