@@ -1,7 +1,6 @@
 import RoomItem from "./RoomItem";
 
 const ListRoom = ({data}) => {
-    console.log(data);
     return(
         <div className="p-4 max-w-screen-xl m-auto">
             <div className="flex justify-between items-center mb-6">

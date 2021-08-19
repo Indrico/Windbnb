@@ -1,23 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchBarActive from "./SearchBarActive";
-import useFetch from "./useFetch";
+import items from "../stays.json"
 const { default: Header } = require("./Header");
 const { default: ListRoom } = require("./ListRoom");
 
-function App() {
-  let [city, setCity] = useState("Helsinki");
-  const { data, isPending, error } = useFetch('./stays.json');
-  const [searchBarStatus, setSearchBarStatus] = useState(null);
+const allCity = [...new Set (items.map((item) => item.city))];
 
-  console.log(data);
+function App() {
+  const [city, setCity] = useState("Helsinki");
+  const [country] = useState("Finland");
+  const [searchBarStatus, setSearchBarStatus] = useState(null);
+  const [data, setData] = useState(items);
+
+  const filterItems = (city) => {
+    console.log(city);
+    const newItems = items.filter((item) => {
+      return item.city === city
+      // Perlu dikasih kondisi bila ada Tamu atau tidak
+    })
+    setData(newItems);
+    setSearchBarStatus(null);
+  }
 
   return (
     <div className="App">
       <Header city={city} setSearchBarStatus={setSearchBarStatus}/>
-      {error && <div>{error}</div>}
-      {isPending && <div>Loading</div>}
       {data && <ListRoom data={data}/>}
-      {searchBarStatus && <SearchBarActive/>}
+      {searchBarStatus && <SearchBarActive allCity={allCity} country={country} city={city} 
+        setCity={setCity} setSearchBarStatus={setSearchBarStatus} filterItems={filterItems}/>}
     </div>
   );
 }
