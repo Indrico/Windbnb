@@ -63,9 +63,7 @@ $ npm start
 ```
 
 ## Acknowledgements
-- [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
+- [Code 15 React Projects - Complete Course](https://www.youtube.com/watch?v=a_7Z7C_JCyo)
 
 ## Contact
 - Website [indrico.xyz](https://indrico.xyz)
